@@ -81,9 +81,9 @@ static struct {
 	
 	toolPanel = [[ToolPanelView alloc] initWithFrame:CGRectMake(0,240,320,25)];
 	
-	UIButton *btnOption = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,32,25)] autorelease];
-	UIButton *btnLeft = [[[UIButton alloc] initWithFrame:CGRectMake(33,0,67,25)] autorelease];
-	UIButton *btnRight = [[[UIButton alloc] initWithFrame:CGRectMake(100,0,67,25)] autorelease];
+	UIButton *btnOption = [[UIButton alloc] initWithFrame:CGRectMake(0,0,32,25)];
+	UIButton *btnLeft = [[UIButton alloc] initWithFrame:CGRectMake(33,0,67,25)];
+	UIButton *btnRight = [[UIButton alloc] initWithFrame:CGRectMake(100,0,67,25)];
 	[btnLeft setImage:[UIImage imageNamed:@"leftmouse"] forState:UIControlStateHighlighted];
 	[btnRight setImage:[UIImage imageNamed:@"rightmouse"] forState:UIControlStateHighlighted];
 	
@@ -165,13 +165,12 @@ static struct {
 	[btnExitFS setImage:[UIImage imageNamed:@"exitfull"] forState:UIControlStateNormal];
 	[btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
 	[fullscreenPanel.contentView addSubview:btnExitFS];
-	[btnExitFS release];
 	
 	
 	// Create the button larger than the image, so we have a bigger clickable area,
 	// while visually takes smaller place
-	btnDPadSwitch = [[[UIButton alloc] initWithFrame:CGRectMake(viewRect.size.width/2-38,viewRect.size.height-25,76,25)] autorelease];
-	UIImageView *imgTmp = [[[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 72, 16)] autorelease];
+	btnDPadSwitch = [[UIButton alloc] initWithFrame:CGRectMake(viewRect.size.width/2-38,viewRect.size.height-25,76,25)];
+	UIImageView *imgTmp = [[UIImageView alloc] initWithFrame:CGRectMake(2, 2, 72, 16)];
 	imgTmp.image = [UIImage imageNamed:@"switch"];
 	[btnDPadSwitch addSubview:imgTmp];
 	slider = [[UIImageView alloc] initWithFrame:CGRectMake(21,7,17,8)];
@@ -198,7 +197,7 @@ static struct {
 {
 	NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
 	
-	UIImageView *cpuWindow = [[[UIImageView alloc] initWithFrame:CGRectMake(0,0,48,24)] autorelease];
+	UIImageView *cpuWindow = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,48,24)];
 	cpuWindow.image = [UIImage imageNamed:@"cpuwindow"];
 	
 	if (labCycles2 == nil)
@@ -221,7 +220,7 @@ static struct {
 	
 	for (int i = 0; i < NUM_BUTTON_INFO; i++) {
 		if ([self isInputSourceEnabled:toggleButtonInfo[i].type]) {
-			UIButton *btn = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,48,24)] autorelease];
+			UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,48,24)];
 			NSString *on = [NSString stringWithUTF8String:toggleButtonInfo[i].onImageName];
 			NSString *off = [NSString stringWithUTF8String:toggleButtonInfo[i].offImageName];
 			BOOL active = [self isInputSourceActive:toggleButtonInfo[i].type];
@@ -233,7 +232,7 @@ static struct {
 		}
 	}
 	
-	UIButton *btnOption = [[[UIButton alloc] initWithFrame:CGRectMake(380,0,48,24)] autorelease];
+	UIButton *btnOption = [[UIButton alloc] initWithFrame:CGRectMake(380,0,48,24)];
 	[btnOption setImage:[UIImage imageNamed:@"options"] forState:UIControlStateNormal];
 	[btnOption addTarget:self action:@selector(showOption) forControlEvents:UIControlEventTouchUpInside];
 	[items addObject:btnOption];
@@ -351,7 +350,6 @@ static struct {
 	if (kbd != nil)
 	{
 		[kbd removeFromSuperview];
-		[kbd release];
 		kbd = nil;
 	}
 	else
@@ -365,7 +363,6 @@ static struct {
 	if (kbd != nil)
 	{
 		[kbd removeFromSuperview];
-		[kbd release];
 		kbd = nil;
 	}
 	CGRect rect;
@@ -422,7 +419,6 @@ static struct {
 {
 	if (joystick != nil) {
 		[joystick removeFromSuperview];
-		[joystick release];
 		joystick = nil;
 	}
 	joystick = [self createGamepadHelper:GamePadJoystick];
@@ -432,7 +428,6 @@ static struct {
 {
 	if (gamepad != nil) {
 		[gamepad removeFromSuperview];
-		[gamepad release];
 		gamepad = nil;
 	}
 	gamepad = [self createGamepadHelper:GamePadDefault];
@@ -593,19 +588,6 @@ static struct {
 	// e.g. self.myOutlet = nil;
 }
 
-- (void)dealloc {
-	[banner release];
-	[labCycles release];
-	[labCycles2 release];
-	[fsIndicator release];
-	[fsIndicator2 release];
-	[toolPanel release];
-	[btnShowKeyboard release];
-	[slider release];
-	[fullscreenPanel release];
-	[btnDPadSwitch release];
-	[super dealloc];
-}
 
 /*
  * Handle dos screen resize.

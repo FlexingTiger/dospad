@@ -74,13 +74,13 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
     {
         DosPadViewController *ctrl = [[DosPadViewController alloc] init];
         ctrl.configPath = configPath;
-        return [ctrl autorelease];
+        return ctrl;
     }
     else
     {
         DosPadViewController_iPhone *ctrl = [[DosPadViewController_iPhone alloc] init];
         ctrl.configPath = configPath;
-        return [ctrl autorelease];        
+        return ctrl;        
     }
 }
 
@@ -171,14 +171,10 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
 }
 
 - (void)dealloc {
-    [screenView release];
-    [configPath release];
-    [holdIndicator release];
     [self removeAllInputSources];
     
     //TODO LITCHIE commented out by TVD
     //[vk release];
-    [super dealloc];
 }
 
 - (void)onLaunchExit
@@ -432,7 +428,6 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
             if (numpad) 
             {
                 [numpad removeFromSuperview];
-                [numpad release];
                 numpad = nil;
             }
             break;
@@ -442,7 +437,6 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
             if (kbd) 
             {
                 [kbd removeFromSuperview];
-                [kbd release];
                 kbd = nil;
             }
             break;
@@ -452,7 +446,6 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
             if (gamepad) 
             {
                 [gamepad removeFromSuperview];
-                [gamepad release];
                 gamepad = nil;
             }
             break;
@@ -462,7 +455,6 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
             if (joystick) 
             {
                 [joystick removeFromSuperview];
-                [joystick release];
                 joystick = nil;
             }
             break;
@@ -472,7 +464,6 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
             if (piano)
             {
                 [piano removeFromSuperview];
-                [piano release];
                 piano = nil;
             }
             break;
@@ -482,13 +473,11 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
             if (btnMouseLeft) 
             {
                 [btnMouseLeft removeFromSuperview];
-                [btnMouseLeft release];
                 btnMouseLeft = nil;
             }
             if (btnMouseRight) 
             {
                 [btnMouseRight removeFromSuperview];
-                [btnMouseRight release];
                 btnMouseRight = nil;
             }
             break;

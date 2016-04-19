@@ -486,8 +486,8 @@
 		E75276F012A0A77E00278BA1 /* modekeyon.png in Resources */ = {isa = PBXBuildFile; fileRef = E75276E412A0A77E00278BA1 /* modekeyon.png */; };
 		E75276F112A0A77E00278BA1 /* modekeyon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E75276E512A0A77E00278BA1 /* modekeyon@2x.png */; };
 		E75276F212A0A77E00278BA1 /* modekeyon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E75276E612A0A77E00278BA1 /* modekeyon~ipad.png */; };
-		E7685A8A1BB76C8200FAC866 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7685A891BB76C8200FAC866 /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
-		E7685A8B1BB76C8200FAC866 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7685A891BB76C8200FAC866 /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
+		E7685A8A1BB76C8200FAC866 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7685A891BB76C8200FAC866 /* Settings.bundle */; };
+		E7685A8B1BB76C8200FAC866 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7685A891BB76C8200FAC866 /* Settings.bundle */; };
 		E76C49381299490200901B69 /* FloatPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76C49371299490200901B69 /* FloatPanel.m */; };
 		E76C49391299490300901B69 /* FloatPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76C49371299490200901B69 /* FloatPanel.m */; };
 		E76DAEAF123EE08B00C2AEF7 /* FrameskipIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = E76DAEAE123EE08B00C2AEF7 /* FrameskipIndicator.m */; };
@@ -3185,9 +3185,6 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				TargetAttributes = {
-					E71E60DF11B5502700EC5A05 = {
-						DevelopmentTeam = 4C8YZND49H;
-					};
 					E7BE1297128BF31A0046990B = {
 						DevelopmentTeam = 4C8YZND49H;
 						SystemCapabilities = {
@@ -3996,6 +3993,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -4033,6 +4031,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -4179,6 +4178,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -4479,6 +4479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;

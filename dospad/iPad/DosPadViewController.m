@@ -53,7 +53,7 @@ static struct {
     //---------------------------------------------------
     // 1. Create View
     //---------------------------------------------------
-    UIImageView *baseView = [[[UIImageView alloc] initWithFrame:CGRectMake(0,0,768,1024)] autorelease];
+    UIImageView *baseView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,768,1024)];
     baseView.contentMode = UIViewContentModeCenter;
     self.view = baseView;
     self.view.backgroundColor = [UIColor blackColor];
@@ -151,7 +151,6 @@ static struct {
                      action:@selector(toggleGamePad)
            forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnToGamePad];
-    [btnToGamePad release];
     
     UIButton *btnToJoy = [[UIButton alloc] initWithFrame:CGRectMake(326,968,72,34)];
     [btnToJoy addTarget:self
@@ -159,13 +158,12 @@ static struct {
            forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnToJoy];
     
-    [btnToJoy release];
     
     //---------------------------------------------------
     // 12. Fullscreen Panel
     //---------------------------------------------------    
     fullscreenPanel = [[FloatPanel alloc] initWithFrame:CGRectMake(0,0,700,47)];
-    UIButton *btnExitFS = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
+    UIButton *btnExitFS = [[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)];
     btnExitFS.center=CGPointMake(63, 18);
     [btnExitFS setImage:[UIImage imageNamed:@"exitfull~ipad"] forState:UIControlStateNormal];
     [btnExitFS addTarget:self action:@selector(toggleScreenSize) forControlEvents:UIControlEventTouchUpInside];
@@ -200,7 +198,7 @@ static struct {
 {
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:16];
     
-    UIImageView *cpuWindow = [[[UIImageView alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
+    UIImageView *cpuWindow = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,72,36)];
     cpuWindow.image = [UIImage imageNamed:@"cpuwindow"];
     
     if (labCycles2 == nil)
@@ -224,7 +222,7 @@ static struct {
     for (int i = 0; i < NUM_BUTTON_INFO; i++) {
 		if ([self isInputSourceEnabled:toggleButtonInfo[i].type])
         {
-            UIButton *btn = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
+            UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)];
             NSString *on = [NSString stringWithUTF8String:toggleButtonInfo[i].onImageName];
             NSString *off = [NSString stringWithUTF8String:toggleButtonInfo[i].offImageName];
             BOOL active = [self isInputSourceActive:toggleButtonInfo[i].type];
@@ -236,7 +234,7 @@ static struct {
         }
     }
     
-    UIButton *btnOpt = [[[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)] autorelease];
+    UIButton *btnOpt = [[UIButton alloc] initWithFrame:CGRectMake(0,0,72,36)];
     [btnOpt setImage:[UIImage imageNamed:@"options"] forState:UIControlStateNormal];
     [btnOpt addTarget:self action:@selector(showOption) forControlEvents:UIControlEventTouchUpInside];
     [items addObject:btnOpt];
@@ -357,8 +355,6 @@ static struct {
         gpad.backgroundColor=[UIColor clearColor];
         [gpad insertSubview:left atIndex:0];
         [gpad insertSubview:right atIndex:0];
-        [left release];
-        [right release];
     }
     
     gpad.mode = mod;    
@@ -571,23 +567,6 @@ static struct {
 }
 
 
-- (void)dealloc {
-	[btnShowCommands release];
-    [btnMouseLeftP release];
-    [btnMouseRightP release];
-    [labCycles2 release];
-    [fsIndicator2 release];
-    [fullscreenPanel release];
-    [gamepadLight release];
-    [joystiqLight release];
-    [btnBack release];
-    [btnOption release];
-    [keyboard release];
-    [labCycles release];
-    [fsIndicator release];
-    [sliderInput release];
-    [super dealloc];
-}
 
 -(void)onResize:(CGSize)sizeNew
 {
@@ -606,7 +585,6 @@ static struct {
     } else if ([fltView tag] == TAG_INPUT) {
         
     }
-    [fltView release];
 }
 
 - (void)showCommandList

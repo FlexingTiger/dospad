@@ -98,29 +98,30 @@ extern int SDL_SendKeyboardKey(int index, Uint8 state, SDL_scancode scancode);
     // for(int i=0;i<20;i++) NSLog(@"%d [%ld]", i, eventMem[i]);
 }
 
-- (void)handleKeyUIEvent:(UIEvent *)event
-{
-    if ([event respondsToSelector:@selector(_gsEvent)]) {
-        NSInteger *eventMem;
-		
-        eventMem = (NSInteger *)[event performSelector:@selector(_gsEvent)];
-        if (eventMem) {
-            [self decodeKeyEvent:eventMem];
-        }
-    }
-}
-
+// YS: doesn't compile with ARC - can't cast id to NSInteger* :( I don't think this works in iOS 9 anyways
+//- (void)handleKeyUIEvent:(UIEvent *)event
+//{
+//    if ([event respondsToSelector:@selector(_gsEvent)]) {
+//        NSInteger *eventMem;
+//		
+//        eventMem = (NSInteger*) [event performSelector:@selector(_gsEvent)];
+//        if (eventMem) {
+//            [self decodeKeyEvent:eventMem];
+//        }
+//    }
+//}
+//
 - (void)sendEvent:(UIEvent *)event
 {
 	[super sendEvent:event];
-	if ([event respondsToSelector:@selector(_gsEvent)]) {
-		NSInteger *eventMem;
-		
-		eventMem = (NSInteger*)[event performSelector:@selector(_gsEvent)];
-		if (eventMem) {
-            [self decodeKeyEvent:eventMem];
-        }
-    }
+//	if ([event respondsToSelector:@selector(_gsEvent)]) {
+//		NSInteger *eventMem;
+//		
+//		eventMem = (NSInteger*)[event performSelector:@selector(_gsEvent)];
+//		if (eventMem) {
+//            [self decodeKeyEvent:eventMem];
+//        }
+//    }
 }
 
 #endif

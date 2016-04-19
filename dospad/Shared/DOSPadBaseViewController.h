@@ -59,9 +59,9 @@ typedef enum {
 	UILabel *labServerInfo;
 }
 
-@property (nonatomic, retain) NSString *configPath;
+@property (nonatomic, strong) NSString *configPath;
 @property (nonatomic, assign) BOOL autoExit;
-@property (nonatomic, retain) SDL_uikitopenglview *screenView;
+@property (nonatomic, strong) SDL_uikitopenglview *screenView;
 
 + (DOSPadBaseViewController*)dospadWithConfig:(NSString*)configPath;
 

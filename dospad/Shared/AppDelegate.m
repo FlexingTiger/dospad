@@ -43,7 +43,6 @@
 		[[FileSystemObject sharedObject] removeFileAtPath:filepath];
 	}
 	
-	[ar release];
 }
 
 
@@ -130,7 +129,6 @@
 	NSString *path = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"configs/colortheme.json"];
 	ColorTheme *theme = [[ColorTheme alloc] initWithPath:path];
 	[ColorTheme setDefaultTheme:theme];
-	[theme release];
 }
 
 - (void)registerDefaultSettings
@@ -222,11 +220,6 @@
     return YES;
 }
 
-- (void)dealloc {
-    [navController release];
-    [screenView release];
-    [super dealloc];
-}
 
 -(void)setWindowTitle:(char *)title
 {
@@ -258,7 +251,6 @@
         }
         
     }
-    [t release];
 }
 
 -(void)onLaunchExit
